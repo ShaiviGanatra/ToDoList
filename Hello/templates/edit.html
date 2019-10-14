@@ -1,0 +1,38 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit</title>
+     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+    <div class="small_div">
+        <div class="container">
+            <br>
+            <h2>EDIT</h2>
+            <hr>
+
+            <form action="/update/{{record.id}}">
+                {%  csrf_token %}
+                <label class="form-group" for="title">Title : </label>
+                <input class="form-control" type="text" name="title" value="{{ record.title }}" placeholder="{{ record.title }}">
+                <label class="form-group" for="subject">Subject : </label>
+                <input class="form-control" type="text" name="subject" value="{{ record.subject }}" placeholder="{{ record.subject }}">
+                <label class="form-group" for="incharge">Incharge : </label>
+                <input class="form-control" type="text" name="incharge" value="{{ record.incharge }}" placeholder="{{ record.incharge }}">
+                <label class="form-group" for="submission_date">Submission_date : </label>
+                <input class="form-control" type="date" name="submission_date" value="{{ record.submission_date }}" placeholder="{{ record.submission_date }}">
+
+                <input type="submit" class="btn btn-primary" value="Update">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
